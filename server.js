@@ -61,14 +61,14 @@ app.get("/all", function (req, res) {
 // Scraping data from Thrillist then adds it to mongodb db "jquery"!
 app.get("/scrape", function (req, res) {
 	// axio makes req from Hispanically Speaking News. Using Cheerio to html text using Axios req
-	axios.get("http://www.hispanicallyspeakingnews.com").then(function (response) {
+	axios.get("https://www.thrillist.com/los-angeles").then(function (response) {
 		//loading, Using Cheerio to load html text using axios req.
 		//console.log(response)
 		var $ = cheerio.load(response.data);
 		//loads all element with a "title" class using 'children'
 		$("[itemprop='headline']").each(function (i, element) {
 			var title = $(element).children("a").text();
-			var link = "http://www.hispanicallyspeakingnews.com" + $(element).children("a").attr("href");
+			var link = "https://www.thrillist.com/los-angeles" + $(element).children("a").attr("href");
 			// console.log(title + ":" + link)
 			// use if/else for when it finds both titel and link, it will then insert it into db//
 			if (title && link) {

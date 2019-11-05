@@ -1,26 +1,66 @@
-const express = require('express');
-
-const cheerio = require('cheerio');
-const axios = require('axios');
-const mongoose = require('mongoose');
-const mongo = require('mongodb');
-const mongojs = require('mongojs')
-const path = require("path");
+var express = require('express');
+var app = express();
+var cheerio = require('cheerio'); // Makes HTTP request for HTML page
+var axios = require('axios');
+var mongoose = require('mongoose');
+var mongo = require('mongodb');
+var mongojs = require('mongojs')
+var path = require("path");
 //require('dotenv').config()
-// app.engine("handlebars", express_handlebars({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
+// app.engine("react",({ defaultLayout: "main" })); //using React
+// app.set("view engine", "");  //using React
 // Database config.
+var databaseUrl = "scraper";
+var collections = ["dataScraped"];
 
-const app = express();
-const databaseUrl = "scraper";
-const collections = ["dataScraped"];
+var port = process.env.PORT || 8080;  //could use 3000, 5000, these are open ports
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongofoodDrink";
+mongoose.connect(MONGODB_URI,{ useNewUrlParser: true,useUnifiedTopology: true })
+.then(()=>console.log("MongoDb connected!"))
+.catch(err=>console.log(err))
 
-const port = process.env.PORT || 8080;  //could use 3000, 5000, these are open ports
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoLosAngeles";
-mongoose.connect(MONGODB_URI);
+// app.get("/",(req,res)=>{  ////this is correct as of 11/4/2019 with Ariel
+// 	// do something
+// })
+// app.get("/scraper",(req,res)=>{
+// 	// run the scraper
+// })
+
+
+axios.get("https://www.thrillist.com/food-and-drink/").then(function(response) {
+
+  // Load the body of the HTML into cheerio
+  var $ = cheerio.load(response.data);
+
+  // Empty array to save our scraped data
+  var results = [];
+
+  // With cheerio, find each h4-tag with the class "headline-link" and loop through the results
+  $(".hp-article-title").each(function(i, element) {   ////NEED THE PATTERN!!!!!!?????
+
+	// console.log("====================test",$(element))
+    // Save the text of the h4-tag as "title"
+	var title = $(element).text();
+	var link = $(element).attr("href");
+
+    // Find the h4 tag's parent a-tag, and save it's href value as "link"
+    // var link = $(element).parent().attr("href");
+
+    // Make an object with data we scraped for this h4 and push it to the results array
+    results.push({
+      title: title,
+      link: link
+    });
+  });
+
+  // After looping through each h4.headline-link, log the results
+  console.log(results);
+});
 
 // mongojs config connects to db var, rtns db error
-//const db = mongojs(databaseUrl, collections);
+//var db = mongojs(databaseUrl, collections);
+
+// mongojs config connects to db var, rtns db error
 const db = mongojs(databaseUrl, collections);
 db.on("error", function (error) {
 	console.log("Database Error:", error);
@@ -28,20 +68,22 @@ db.on("error", function (error) {
 
 
 //scrapes results from db and returns it//
-// app.get("/", function (req, res) {
-// 	db.dataScraped.find({}, function (error, found) {
-// 		// Throw any errors to the console
-// 		if (error) {
-// 			console.log(error);
-// 		}
-// 		// If there are no errors, then it sends db to the browser as json//
-// 		else {
-// 			// var handlebarsObject = {    //using React!
-// 				articles: found
-// 			}
-// 			res.render("index", handlebarsObject);  
-// 		}
-// 	});
+app.get("/", function (req, res) {
+db.dataScraped.find({}, function (error, found) {
+// Throw any errors to the console
+if (error) {
+console.log(error);
+}
+// If there are no errors, then it sends db to the browser as json//
+else {
+var reactObject = {    //using React!
+articles: found
+}
+// res.render("index", reactObject);  
+res.send("Hey Rocio")
+}
+});
+});
 
 
 // // Returning 'all' db//clue is FUNCTION, gets req and gives out the results, follow pattern steps//
@@ -120,4 +162,4 @@ db.on("error", function (error) {
 
 app.listen(port, function () {
 	console.log("App listening on port: " + port);
-});
+})

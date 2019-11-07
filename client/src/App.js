@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Route from 'react-router-dom'
+import { Router as Route} from 'react-router-dom'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Route path='../routing/Thrill.js'
+        {/* <Route path='../routing/Thrill.js'
     
         
           className="App-link"
@@ -20,7 +20,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </Route> */}
       </header>
     </div>
   );

@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var mongo = require('mongodb');
 var mongojs = require('mongojs')
 var path = require("path");
+const Router = require("react-router-dom");
 //require('dotenv').config()
 // app.engine("react",({ defaultLayout: "main" })); //using React
 // app.set("view engine", "");  //using React
@@ -159,6 +160,77 @@ res.send("Hey Rocio")
 // // API and HTML routes
 // // require("./app/routing/apiRoutes.js")(app);  
 // require("./app/routing/htmlRoutes.js")(app, path);
+var apartment = ["city ", "state", "zipcode"];
+console.log(apartment)
+var api = "https://api.zillow.com/X1/apartment/search?q=";
+var query = "&q=citystatezip"; 
+var apiKey = "&api_key=X1-ZWz17jrfk5oemj_at3ig=10";  //10 is the limit of apartments//
+var apartmentInput;
+var apartmentButton;
+  
+$(document).ready(function() {
+  
+  $("#add-appartment").on("click",function(event){
+      event.preventDefault()
+          apartmentInput = $("#apartment-input").val().trim()
+          displayApartmentInfo(apartmentInput)   
+          //console.log(apartmentInput)
+  })
+  $(".apartment").on("click",function(){
+      // // alert("hi")
+    apartmentButton = $(this).attr("data-name")
+    displayApartmentInfo(apartmentButton)   
+    console.log(apartmentButton)
+  })
+  
+})
+  
+  //function displayApartment(moveInput) {
+  
+  var apartment = $(this).attr("data-name");
+    var queryURL = "https://api.zillow.com//apartment/search?q=" +
+    apartmentInput + "&api_key=X1-ZWz17jrfk5oemj_at3ig=10";
+  
+    $.ajax({   //ajax sends requests//
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      var results = response.data  //ajarx returns with the result of request//
+      console.log(results)
+      $("#showApartment").empty()
+      console.log(results.length)
+      for (var i = 0; i < results.length; i++) {
+  
+        imageTag = $("<img>")
+        imageTag.attr("src", results[i].images.fixed_height_still.url)
+        // imageTag.attr("data-still",results[i].images.fixed_height_still.url)
+        // imageTag.attr("data-state","still")
+        // imageTag.addClass("")
+        //console.log(imageTag)
+        $("#showApartment").append(imageTag)
+      }
+    });
+  
+  //}
+ 
+  //function renderButtons() {
+    $("#buttons-view").empty();
+  
+    for (var i = 0; i < apartment.length; i++) {
+  
+  
+      var a = $("<button>");
+  
+      a.addClass("apartment");
+  
+      a.attr("data-name", apartment[i]);
+  
+      a.text(apartment[i]);
+  
+      $("#buttons-view").append(a);
+    }
+  //}
+
 
 app.listen(port, function () {
 	console.log("App listening on port: " + port);

@@ -11,7 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {/* <Route path='../routing/Thrill.js'
+        {/* <Route path='../routing/Thrillist.js'    //???? 11/7 this is correct, fix link
     
         
           className="App-link"

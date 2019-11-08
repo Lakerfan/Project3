@@ -44,7 +44,7 @@ axios.get("https://www.thrillist.com/food-and-drink/").then(function(response) {
 	var title = $(element).text();
 	var link = $(element).attr("href");
 
-    // Find the h4 tag's parent a-tag, and save it's href value as "link"
+    // Find the apartment tag's parent a-tag, and save it's href value as "link"
     // var link = $(element).parent().attr("href");
 
     // Make an object with data we scraped for this h4 and push it to the results array
@@ -54,7 +54,7 @@ axios.get("https://www.thrillist.com/food-and-drink/").then(function(response) {
     });
   });
 
-  // After looping through each h4.headline-link, log the results
+  // After looping through each apartment-link, log the results
   console.log(results);
 });
 
@@ -231,6 +231,13 @@ var apartmentButton;
     // }
   //}
 
+
+  
+
+
+  // API and HTML routes///??as of 11/17 should these be here?  
+require("./app/routing/apiRoutes.js")(app);  
+require("./app/routing/htmlRoutes.js")(app);
 
 app.listen(port, function () {
 	console.log("App listening on port: " + port);

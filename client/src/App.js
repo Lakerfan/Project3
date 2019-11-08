@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Router as Route} from 'react-router-dom'
 
 function App() {
   return (
@@ -10,14 +11,16 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
+        {/* <Route path='../routing/Thrillist.js'    //???? 11/7 this is correct, fix link
+    
+        
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </Route> */}
       </header>
     </div>
   );

@@ -31,9 +31,11 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const savedHash = "$2b$10$xF3OPMzmHjbd7xR4TUC1UuJBJaflSuWeL8eATkgSn3Yi5oZkIL.Li";
-bcrypt.compar(passedString, savedHash, function(err, res){
-  console.log(`Did this match? ${res === true ? 'Yes' : 'No'}`);
-})
+bcrypt.genSalt(saltRounds, function(err, salt) {
+  bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+      // Store hash in your password DB.
+  });
+});
 
 
 

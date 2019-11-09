@@ -1,9 +1,9 @@
 "use strict";
 var fs = require("fs");
 var path = require("path");
-var mongoose = require("mongoose"):
+var mongoose = require("mongoose");
 var mongo = require("mongo");
-var mongojs = require("mongojs"):
+var mongojs = require("mongojs");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];

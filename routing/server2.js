@@ -4,11 +4,11 @@ var axios = require("axios");
 // First, tell the console what server2.js is doing
 console.log("\n******************************************\n" +
             "Grabbing every article headline and link\n" +
-            "from the NHL website:" +
+            "from the thrillist website:" +
             "\n******************************************\n");
 
 // Making a request via axios for `nhl.com`'s homepage
-axios.get("https://www.nhl.com/").then(function(response) {
+axios.get("https://www.thrillist/").then(function(response) {
 
   // Load the body of the HTML into cheerio
   var $ = cheerio.load(response.data);

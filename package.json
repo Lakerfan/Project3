@@ -31,6 +31,9 @@
     "path": "^0.12.7",
     "react": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "scraper": "0.0.9"
+    "scraper": "0.0.9",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   }
 }

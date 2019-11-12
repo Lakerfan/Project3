@@ -29,6 +29,7 @@ app.use('/apartments', apartment);
 const thrillist= require('./routing/Thrill')
 app.use('/thrill', thrillist);
 
+User
 const passedString = process.argv[2];
 const bcrypt = require('bcrypt');
 //const saltRounds = 10;
@@ -46,6 +47,8 @@ bcrypt.compare(passedString, savedHash, function(err, res){
 })
 master
 
+=======
+master
 
 
 //var databaseUrl = "scraper";

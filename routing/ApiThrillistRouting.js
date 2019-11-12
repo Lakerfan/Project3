@@ -5,6 +5,6 @@ module.exports = function(app, path) {
 
 
     app.post("/  /", function(req, res) {
-        res.json(people);
+        res.json(thrillist);
     });
   };

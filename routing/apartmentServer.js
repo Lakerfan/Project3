@@ -9,8 +9,8 @@ const router = require("express").Router();
 
 router.get("/", (req, res)=>{
   axios
-    .get("https://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz1hbadzdtngr_am2o3&address=3036+Denison+Ave&citystatezip=Los Angeles%2+CA", {params: req.query})
-    .then(({ data: {results} }) => res.json(results))
+    .get("https://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz1hbadzdtngr_am2o3&address=3036+Denison+Ave&citystatezip=Los%20Angeles%2C+CA", {params: req.query})
+    .then((results) => res.json(results.data))
     .catch(err => res.status(422).json.err);
 })
 

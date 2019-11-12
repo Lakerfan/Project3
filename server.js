@@ -23,8 +23,11 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: false}));
 
-//const routes = require('./routes')
-//app.use('/', routes);
+const apartment = require('./routing/apartmentServer')
+app.use('/apartments', apartment);
+
+const thrillist= require('./routing/Thrill')
+app.use('/thrill', thrillist);
 
 const passedString = process.argv[2];
 const bcrypt = require('bcrypt');

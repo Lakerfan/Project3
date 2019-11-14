@@ -29,16 +29,6 @@ app.use('/apartments', apartment);
 const thrillist= require('./routing/Thrill')
 app.use('/thrill', thrillist);
 
-const passedString = process.argv[2];
-const bcrypt = require('bcrypt');
-//const saltRounds = 10;
-
-const savedHash = "$2b$10$xF3OPMzmHjbd7xR4TUC1UuJBJaflSuWeL8eATkgSn3Yi5oZkIL.Li";
-bcrypt.compare(passedString, savedHash, function(err, res){
-  console.log(`Did this match? ${res === true ? 'Yes' : 'No'}`);
-})
-
-
 
 //var databaseUrl = "scraper";
 //var collections = ["dataScraped"];

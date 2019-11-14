@@ -1,5 +1,11 @@
+ @font-face { 
+   font-family: 'BebasNeue-Regular';
+   src: local('BebasNeue-Regular'), url('./Fonts/BebasNeue-Regular.otf') format('otf');
+}
+
 .App {
   text-align: center;
+  margin-top: 70px;
 }
 
 .App-logo {
@@ -19,4 +25,44 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.aboutUsTitle{
+  font-family: "BebasNeue-Regular";
+  font-size: 4rem;
+  letter-spacing: 1px;
+
+}
+
+.NavBarColor{
+  background: #000000;
+}
+
+.navbarItems {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.ContactUsTitle{
+  font-family: "BebasNeue-Regular";
+  font-size: 6rem;
+  letter-spacing: 1px;
+}
+
+
+.formLabel, .formInput::-webkit-input-placeholder {
+  font-family: "BebasNeue-Regular";
+}
+
+.submit-email-group {
+  align-items: flex-end;
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.submit-email-btn {
+  background-color: #FF3333;
+  color: #000000;
+  border: 1px #000000 solid;
 }

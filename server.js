@@ -41,14 +41,9 @@ bcrypt.genSalt(saltRounds, function(err, salt) {
       // Store hash in your password DB.
   });
 });
-=======
 bcrypt.compare(passedString, savedHash, function(err, res){
   console.log(`Did this match? ${res === true ? 'Yes' : 'No'}`);
 })
-master
-
-=======
-master
 
 
 //var databaseUrl = "scraper";

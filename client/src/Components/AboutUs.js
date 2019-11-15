@@ -1,6 +1,4 @@
 import React from 'react';
-import './App.css';
-import '/'
 
 function AboutUs() {
   return (

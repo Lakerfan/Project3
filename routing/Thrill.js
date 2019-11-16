@@ -3,7 +3,8 @@ const axios = require('axios');
 const mongojs = require('mongojs');
 const router = require("express").Router();
 const cheerio = require("cheerio")
-
+var obj;
+var db=require('../')
 //function Events (){
 router.get("/scrape", function (req, res) {
   axios.get("https://www.thrillist.com/food-and-drink/").then(function (response) {
@@ -34,6 +35,7 @@ router.get("/scrape", function (req, res) {
 
     // After looping through each title link, log the results
     console.log(results);
+    res.send(results)
   });
 
   // mongojs config connects to db var, rtns db error
@@ -49,20 +51,20 @@ router.get("/scrape", function (req, res) {
 
 
   //scrapes results from db and returns it//
-  db.dataScraped.find({}, function (error, found) {
-    // Throw any errors to the console
-    if (error) {
-      console.log(error);
-    }
-    // If there are no errors, then it sends db to the browser as json//
-    else {
-      var reactObject = {    //using React!
-        articles: found
-      }
-      // res.render("index", reactObject);  
-      res.send(results)
-    }
-  });
+  // db.dataScraped.find({}, function (error, found) {
+  //   // Throw any errors to the console
+  //   if (error) {
+  //     console.log(error);
+  //   }
+  //   // If there are no errors, then it sends db to the browser as json//
+  //   else {
+  //     var reactObject = {    //using React!
+  //       articles: found
+  //     }
+  //     // res.render("index", reactObject);  
+  //     res.send(results)
+  //   }
+  // });
 
 });
 // // Returning 'all' db//clue is FUNCTION, gets req and gives out the results, follow pattern steps//
@@ -108,6 +110,11 @@ router.get("/scrape2", function (req, res) {
               found = true;
 
           }
+           obj={
+            title: title,
+              link: link
+          }
+
           if (found == false) {
             db.dataScraped.insert({
               title: title,
@@ -119,7 +126,8 @@ router.get("/scrape2", function (req, res) {
                   console.log(err);
                 }
                 else {
-                  console.log(inserted);
+                  
+                  
                 }
               });
           }
@@ -134,7 +142,9 @@ router.get("/scrape2", function (req, res) {
   });
 
   // Sends 'Scrape is Done!' msg sen to browser//
+  
   res.json("Scrape is Done!");
+ 
 });
 
 

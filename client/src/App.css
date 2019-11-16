@@ -27,12 +27,15 @@
   color: #09d3ac;
 }
 
+
 .aboutUsTitle,.yourProfile{
+
   font-family: "BebasNeue-Regular";
   font-size: 4rem;
   letter-spacing: 1px;
 
 }
+
 
 .profileImg {
   /* height: 300px; */
@@ -54,6 +57,7 @@
 
 .NavBarColor{
   background: #0c4d58;
+
 }
 
 .navbarItems {

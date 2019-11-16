@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"; 
 import { Navbar, Nav } from "react-bootstrap";
 
+
 // import logo from './logo.svg';
 import ContactUs from './Components/ContactUs'; 
 import About from './Components/AboutUs'
@@ -63,9 +64,11 @@ function App() {
           <Route path="/contactus">
             <ContactUs />
           </Route>
+
           <Route path="/profile">
             <Profile userInfo={user} greeting="hello there!" />
           </Route>
+
         </Switch>
       </div> 
 

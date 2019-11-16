@@ -13,7 +13,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #e8eaee;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,15 +27,37 @@
   color: #09d3ac;
 }
 
-.aboutUsTitle{
+
+.aboutUsTitle,.yourProfile{
+
   font-family: "BebasNeue-Regular";
   font-size: 4rem;
   letter-spacing: 1px;
 
 }
 
+
+.profileImg {
+  /* height: 300px; */
+  max-width: 350px;
+  border: 2px solid rgb(21, 7, 29);
+  padding: 1.5px;
+  transform: rotate(-4deg);
+}
+.profileImgContainer {
+  text-align: left;
+}
+
+.welcomeBack{
+  font-family: "BebasNeue-Regular";
+  /* font-size: px; */
+  letter-spacing: 1px;
+
+}
+
 .NavBarColor{
-  background: #000000;
+  background: #0c4d58;
+
 }
 
 .navbarItems {

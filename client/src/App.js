@@ -7,10 +7,23 @@ import {
 } from "react-router-dom"; 
 import { Navbar, Nav } from "react-bootstrap";
 
-import logo from './logo.svg';
-import ContactUs from './ContactUs'; 
-import About from './AboutUs';s
+
+// import logo from './logo.svg';
+import ContactUs from './Components/ContactUs'; 
+import About from './Components/AboutUs'
+import Profile from './Components/Profile'
 import './App.css';
+import ProfileImg from './Images/ProfileImage.jpg'
+
+
+//Let's pretend we have a user logged in.  Here is the info (already pulled from the db) for this pretend user:
+const user = {
+  userName: "Amber W.",
+  profileImg: ProfileImg,
+  favorites: [],
+  jobSearches: [],
+  lifestyle: []
+}
 
 function App() {
   return (
@@ -51,6 +64,11 @@ function App() {
           <Route path="/contactus">
             <ContactUs />
           </Route>
+
+          <Route path="/profile">
+            <Profile userInfo={user} greeting="hello there!" />
+          </Route>
+
         </Switch>
       </div> 
 

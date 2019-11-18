@@ -13,6 +13,7 @@ import About from './Components/AboutUs'
 import Profile from './Components/Profile'
 import './App.css';
 import ProfileImg from './Images/ProfileImage.jpg'
+import Results from './Components/Results'
 
 
 //Let's pretend we have a user logged in.  Here is the info (already pulled from the db) for this pretend user:
@@ -64,9 +65,12 @@ function App() {
             <ContactUs />
           </Route>
           <Route path="/profile">
-            <Profile userInfo={user} greeting="hello there!" />
+            <Profile userInfo={user} greeting="Hello There!" />
           </Route>
-        </Switch>
+          <Route path="/results">
+            <Results />
+          </Route>
+         </Switch>
       </div> 
 
 

@@ -1,8 +1,8 @@
-import "dotenv"
+
 const axios = require('axios');
 const router = require('express').Router();
-const api_id = process.env.REACT_APP_PROJECT_3_APP_ID
-const api_key = process.env.REACT_APP_PROJECT_3_APP_KEY
+const api_id = process.env.PROJECT_3_APP_ID
+const api_key = process.env.PROJECT_3_APP_KEY
 
 
 router.get('/', (req, res) => {

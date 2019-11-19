@@ -37,8 +37,6 @@ app.use(bodyParser.urlencoded({ extended: false}));
 const jobSearch = require('./routing/jobsSearch');
 app.use('/jobs', jobSearch);
 
-const apartment = require('./routing/apartmentServer')
-app.use('/apartments', apartment);
 
 
 const thrillist= require('./controllers/thrillistController.js')

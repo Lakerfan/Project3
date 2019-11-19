@@ -26,8 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false}));
 const apartment = require('./routing/apartmentServer')
 app.use('/apartments', apartment);
 
-const thrillist= require('./routing/Thrill')
+
+const thrillist= require('./controllers/thrillistController.js')
 app.use('/thrill', thrillist);
+// Rocios original route below:
+// const thrillist= require('./routing/Thrill')
+// app.use('/thrill', thrillist);
 
 
 //var databaseUrl = "scraper";
@@ -38,8 +42,6 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongofoodDrink
 mongoose.connect(MONGODB_URI,{ useNewUrlParser: true,useUnifiedTopology: true })
 .then(()=>console.log("MongoDb connected!"))
 .catch(err=>console.log(err))
-
-
 
 app.listen(port, function () {
 	console.log("App listening on port: " + port);

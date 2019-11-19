@@ -29,22 +29,6 @@ app.use('/apartments', apartment);
 const thrillist= require('./routing/Thrill')
 app.use('/thrill', thrillist);
 
-User
-const passedString = process.argv[2];
-const bcrypt = require('bcrypt');
-//const saltRounds = 10;
-
-const savedHash = "$2b$10$xF3OPMzmHjbd7xR4TUC1UuJBJaflSuWeL8eATkgSn3Yi5oZkIL.Li";
-User
-bcrypt.genSalt(saltRounds, function(err, salt) {
-  bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-      // Store hash in your password DB.
-  });
-});
-bcrypt.compare(passedString, savedHash, function(err, res){
-  console.log(`Did this match? ${res === true ? 'Yes' : 'No'}`);
-})
-
 
 //var databaseUrl = "scraper";
 //var collections = ["dataScraped"];

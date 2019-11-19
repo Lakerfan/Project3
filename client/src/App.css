@@ -27,12 +27,15 @@
   color: #09d3ac;
 }
 
-.aboutUsTitle,.yourProfile{
+
+.aboutUsTitle,.yourProfile,.results{
+
   font-family: "BebasNeue-Regular";
   font-size: 4rem;
   letter-spacing: 1px;
 
 }
+
 
 .profileImg {
   /* height: 300px; */
@@ -54,6 +57,7 @@
 
 .NavBarColor{
   background: #0c4d58;
+
 }
 
 .navbarItems {
@@ -79,8 +83,27 @@
   margin-bottom: 60px;
 }
 
-.submit-email-btn {
+.submit-email-btn{
   background-color: #FF3333;
   color: #000000;
   border: 1px #000000 solid;
+}
+
+.searchHome{
+  background-color: black;
+}
+
+.googleIcon{
+  width: 16px;
+  position: relative;
+  bottom:45px;
+  left:366px;
+  
+}
+
+.searchIcon{
+  width: 18px;
+  position: relative;
+  bottom:45px;
+  left:366px;  
 }

@@ -1,28 +1,41 @@
 "use strict";
 
-const Express = require('express');
+const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 
-function defineUsers(express) {
+function defineUsers(sequelize) {
 
-    class Users extends Express.Model {}
+    class Users extends Sequelize.Model {}
 
     const attributes = {
 
         name: {
-            type: 'string',
-            required: true
+            type: Sequelize.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 255]
+            }
         },
 
         password: {
-            type: 'string',
-            required: true
+            type: Sequelize.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 255]
+            }
+        },
+
+        createdAt: {
+            type: "TIMESTAMP",
+            allowNull: false,
+            defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
         }
     };
 
     const options = {
-        express,
-        modelName: "Users",
+       sequelize,
+       modelName: "Users",
+       timestamps: false
     };
 
     Users.init(attributes, options);
@@ -30,6 +43,8 @@ function defineUsers(express) {
     Users.associate = (models) => {
 
         const associateOptions = {
+
+            foreignKey: "apt_id",
             onDelete: "restrict",
             onUpdate: "restrict"
         };
@@ -43,6 +58,7 @@ function defineUsers(express) {
     };
 
     Users.isValidPassword = (password, hash) => {
+        
         return bycrypt.compareSync(password, hash);
     };
 

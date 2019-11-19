@@ -7,9 +7,20 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoConnection = require('./db/connection').connection;
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'password',
+  database: 'get_moving_db'
+});
 //var mongo = require('mongodb');
 //var mongojs = require('mongojs')
 //var path = require("path");
+
+
 
 const app = express();
 app.use(
@@ -23,8 +34,9 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: false}));
 
-const apartment = require('./routing/apartmentServer')
-app.use('/apartments', apartment);
+const jobSearch = require('./routing/jobsSearch');
+app.use('/jobs', jobSearch);
+
 
 
 const thrillist= require('./controllers/thrillistController.js')

@@ -8,6 +8,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoConnection = require('./db/connection').connection;
 const mysql = require('mysql');
+const port = process.env.PORT || 3000;  
+
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -16,9 +18,6 @@ const connection = mysql.createConnection({
   password: 'password',
   database: 'get_moving_db'
 });
-//var mongo = require('mongodb');
-//var mongojs = require('mongojs')
-//var path = require("path");
 
 
 
@@ -33,6 +32,14 @@ app.use(
 )
 
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
+
+app.use(routes);
 
 const jobSearch = require('./routing/jobsSearch');
 app.use('/jobs', jobSearch);
@@ -49,12 +56,11 @@ app.use('/thrill', thrillist);
 //var databaseUrl = "scraper";
 //var collections = ["dataScraped"];
 
-const port = process.env.PORT || 8080;  //could use 3000, 5000, these are open ports
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongofoodDrink";
 mongoose.connect(MONGODB_URI,{ useNewUrlParser: true,useUnifiedTopology: true })
 .then(()=>console.log("MongoDb connected!"))
 .catch(err=>console.log(err))
 
 app.listen(port, function () {
-	console.log("App listening on port: " + port);
+	console.log(`API Server Now Listening on Port ${port}`)
 })

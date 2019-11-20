@@ -10,7 +10,7 @@ var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
 if (config.use_env_variable) {
-  var mongo = new momgo(process.env[config.use_env_variable]);
+  var mongo = new mongo(process.env[config.use_env_variable]);
 } else {
   var mongo = new mongo(
     config.database,

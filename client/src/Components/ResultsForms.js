@@ -2,11 +2,10 @@ import React,{useState} from 'react';
 import { Form, Button, Col, Row } from "react-bootstrap";
 
 
-function ContactUsForm() {
+function ResultsForms() {
     const [validated, setValidated] = useState(false);
   
     const handleSubmit = event => {
-      event.preventDefault();
       const form = event.currentTarget;
       if (form.checkValidity() === false) {
         event.preventDefault();
@@ -75,11 +74,12 @@ function ContactUsForm() {
             <Form.Control.Feedback> Alright!</Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} md="2" className="submit-email-group">
-            <Button className="submit-email-btn" type="submit">Send Email</Button>
+            <Button className="submit-email-btn" type="submit">SEARCH</Button>
           </Form.Group>
         </Form.Row>
       </Form>
     );
   }
-  
-  export default ContactUsForm;
+
+
+export default ResultsForms;

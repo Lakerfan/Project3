@@ -1,6 +1,11 @@
- @font-face { 
-   font-family: 'BebasNeue-Regular';
-   src: local('BebasNeue-Regular'), url('./Fonts/BebasNeue-Regular.otf') format('otf');
+@font-face { 
+  font-family: 'BebasNeue-Regular';
+  src: local('BebasNeue-Regular'), url('./Fonts/BebasNeue-Regular.otf') format('otf');
+} 
+
+@font-face { 
+  font-family: 'BebasNeue-Bold';
+  src: local('BebasNeue-Bold'), url('./Fonts/BebasNeue-Bold.otf') format('otf');
 }
 
 .App {
@@ -28,7 +33,7 @@
 }
 
 
-.aboutUsTitle,.yourProfile{
+.aboutUsTitle,.yourProfile,.results{
 
   font-family: "BebasNeue-Regular";
   font-size: 4rem;
@@ -83,8 +88,23 @@
   margin-bottom: 60px;
 }
 
-.submit-email-btn {
+.submit-email-btn{
   background-color: #FF3333;
   color: #000000;
   border: 1px #000000 solid;
 }
+
+.searchHome{
+  background-color: black;
+}
+
+
+
+
+.searchMap{
+  width: 100%;
+  position: relative;
+  height: 70vh;
+
+}
+

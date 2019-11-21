@@ -1,19 +1,16 @@
 const express = require('express');
 
 //const cheerio = require('cheerio'); // Makes HTTP request for HTML page
-//const axios = require('axios');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const routes = require("./routes");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoConnection = require('./db/connection').connection;
 const mysql = require('mysql');
-<<<<<<< HEAD
 const cors = require('cors');
-=======
-const port = process.env.PORT || 3000;  
 
->>>>>>> 56091ca79e747b9c3f3cdd8f5cf212d7bb014f2b
+const port = process.env.PORT || 3000;  
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -22,8 +19,6 @@ const connection = mysql.createConnection({
   password: 'password',
   database: 'get_moving_db'
 });
-
-
 
 const app = express();
 app.use(
@@ -53,13 +48,6 @@ app.use('/jobs', jobSearch);
 
 const thrillist= require('./controllers/thrillistController.js')
 app.use('/thrill', thrillist);
-// Rocios original route below:
-// const thrillist= require('./routing/Thrill')
-// app.use('/thrill', thrillist);
-
-
-//var databaseUrl = "scraper";
-//var collections = ["dataScraped"];
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongofoodDrink";
 mongoose.connect(MONGODB_URI,{ useNewUrlParser: true,useUnifiedTopology: true })

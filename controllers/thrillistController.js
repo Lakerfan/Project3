@@ -32,7 +32,7 @@ router.get("/scrape", function (req, res) {
       db.dataScraped.find(function (err, docs) {
         var found = false
         for (var doc in docs) {
-          if (doc.title === docs[doc].title)
+          if (title === docs[doc].title)
             found = true;
 
         }
@@ -70,65 +70,6 @@ res.json("Scrape is Done Rocio!");
   });
 });
 
-// Scraping data from Thrillist then adds it to mongodb db "jquery"!
-router.get("/scrape2", function (req, res) {
-  // axio makes req from Thrillist. Using Cheerio to html text using Axios req
-  axios.get("https://www.thrillist.com/los-angeles").then(function (response) {
-    //loading, Using Cheerio to load html text using axios req.
-    //console.log(response)
-
-  
-    var $ = cheerio.load(response.data);
-    //loads all element with a "title" class using 'children'
-    $(".hp-article-title").each(function (i, element) {
-      var title = $(element).text();
-      var link = $(element).attr("href");     
-       console.log(title + ":" + link)
-      // use if/else for when it finds both titel and link, it will then insert it into db//
-      if (title && link) {
-        db.dataScraped.find(function (err, docs) {
-          var found = false
-          for (var doc in docs) {
-            if (doc.title === docs[doc].title)
-              found = true;
-
-          }
-           obj={
-            title: title,
-              link: link
-          }
-
-          if (found == false) {
-            db.dataScraped.insert({
-              title: title,
-              link: link
-            },
-              //if both are not found, it will rtn error
-              function (err, inserted) {
-                if (err) {
-                  console.log(err);
-                }
-                else {
-                  
-                  
-                }
-              });
-          }
-
-          //res.json(docs)
-          // docs is an array of all the documents in mycollection
-        })
-
-
-      }
-    });
-  });
-
-  // Sends 'Scrape is Done!' msg sen to browser//
-  
-  res.json("Scrape is Done!");
- 
-});
 
 
 

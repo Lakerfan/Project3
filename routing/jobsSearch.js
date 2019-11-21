@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
             `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${api_id}&app_key=${api_key}&what=""&where=losAngeles`,
             {params: req.query})
         .then(({ data: {results} }) => res.json(results))
-        .catch(err => res.status(422).json.err)
+        .catch(err => res.json(err))
 })
 
 module.exports = router;

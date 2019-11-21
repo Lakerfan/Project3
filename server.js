@@ -8,8 +8,12 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoConnection = require('./db/connection').connection;
 const mysql = require('mysql');
+<<<<<<< HEAD
+const cors = require('cors');
+=======
 const port = process.env.PORT || 3000;  
 
+>>>>>>> 56091ca79e747b9c3f3cdd8f5cf212d7bb014f2b
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -31,6 +35,7 @@ app.use(
   })
 )
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 

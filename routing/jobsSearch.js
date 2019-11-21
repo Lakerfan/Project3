@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
             URL,
             { Accept: 'application/json' })
         .then(({ data: {results} }) => res.json(results))
-        .catch(err => res.status(422).json.err)
+        .catch(err => res.json(err))
 })
 
 module.exports = router;

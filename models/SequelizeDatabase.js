@@ -1,10 +1,8 @@
 "use strict";
 
-//require("dotenv").config();
 const path = require("path")
 const Sequelize = require("sequelize");
-//const configPaths = require("../config/configPaths.js");
-//const connectionDetails = require(configPaths.configConnectionDetailsPath);
+
 
 class SequelizeDatabase {
 

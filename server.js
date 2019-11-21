@@ -3,7 +3,7 @@ const express = require('express');
 //const cheerio = require('cheerio'); // Makes HTTP request for HTML page
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const routes = require("./routes");
+
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoConnection = require('./db/connection').connection;

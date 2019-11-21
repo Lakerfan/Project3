@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import HouseMarker from '../Images/homeMarker.png'
+//import HouseMarker from '../Images/homeMarker.png'
 
 
 function Marker(props) {
@@ -8,7 +8,8 @@ function Marker(props) {
   return (
     <>
     <img
-        src={props.type === 'job' ? '/img/GoogleMapsPin.jpg' : HouseMarker}
+      src = {'/img/GoogleMapsPin.jpg'}
+       // src={props.type === 'job' ? '/img/GoogleMapsPin.jpg' : HouseMarker}
         style={{ height: '20px', width: '20px' }}
         onClick={props.handleZoom}
         onMouseOver={() => setInfoWindow(true)}

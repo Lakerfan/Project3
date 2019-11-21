@@ -3,10 +3,10 @@
   src: local('BebasNeue-Regular'), url('./Fonts/BebasNeue-Regular.otf') format('otf');
 } 
 
-@font-face { 
+/*@font-face { 
   font-family: 'BebasNeue-Bold';
   src: local('BebasNeue-Bold'), url('./Fonts/BebasNeue-Bold.otf') format('otf');
-}
+}*/
 
 .App {
   text-align: center;

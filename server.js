@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 const mongoConnection = require('./db/connection').connection;
 const mysql = require('mysql');
 const port = process.env.PORT || 3000;  
-
+const routes =require('./routes')
 
 const connection = mysql.createConnection({
   host: 'localhost',

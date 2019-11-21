@@ -14,6 +14,7 @@ import About from './Components/AboutUs'
 import Profile from './Components/Profile'
 import './App.css';
 import ProfileImg from './Images/ProfileImage.jpg'
+import {AboutSection} from './pages/navBar';
 
 
 //Let's pretend we have a user logged in.  Here is the info (already pulled from the db) for this pretend user:
@@ -54,6 +55,7 @@ function App() {
       </Navbar.Collapse>
     </Navbar>
 <div>
+
 
        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 // import {BrowseRouter as Router} from 'react-router-dom'
-import './Fonts/BebasNeue-Bold.ttf';
+//import './Fonts/BebasNeue-Bold.ttf';
 
 
 ReactDOM.render(

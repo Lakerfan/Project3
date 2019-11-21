@@ -1,6 +1,11 @@
- @font-face { 
-   font-family: 'BebasNeue-Regular';
-   src: local('BebasNeue-Regular'), url('./Fonts/BebasNeue-Regular.otf') format('otf');
+@font-face { 
+  font-family: 'BebasNeue-Regular';
+  src: local('BebasNeue-Regular'), url('./Fonts/BebasNeue-Regular.otf') format('otf');
+} 
+
+@font-face { 
+  font-family: 'BebasNeue-Bold';
+  src: local('BebasNeue-Bold'), url('./Fonts/BebasNeue-Bold.otf') format('otf');
 }
 
 .App {
@@ -93,17 +98,13 @@
   background-color: black;
 }
 
-.googleIcon{
-  width: 16px;
+
+
+
+.searchMap{
+  width: 100%;
   position: relative;
-  bottom:45px;
-  left:366px;
-  
+  height: 70vh;
+
 }
 
-.searchIcon{
-  width: 18px;
-  position: relative;
-  bottom:45px;
-  left:366px;  
-}

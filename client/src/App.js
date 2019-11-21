@@ -34,29 +34,28 @@ function App() {
       <Navbar.Brand>
         <Link to="/">Got it Made</Link>
       </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="navbarItems">
-          <Nav.Link>
+          <Nav.Item>
             <Link to="/">HOME</Link>
-          </Nav.Link>
+          </Nav.Item>
           {/* <Link to="/">Results</Link> */}
-          <Nav.Link>
+          <Nav.Item>
             <Link to="/about">ABOUT US</Link>
-          </Nav.Link>
-          <Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="/login">LOG IN</Link>
-          </Nav.Link>
-          <Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="/signup">SIGN UP</Link>
-          </Nav.Link>
-          <Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="/contactus">CONTACT US</Link>
-          </Nav.Link>
+          </Nav.Item>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>
-  
+  </Navbar>
 
        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -79,8 +78,6 @@ function App() {
       </Route> */}
     </Switch>
    </Router>
-
-   
    );
 }
 

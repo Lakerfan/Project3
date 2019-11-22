@@ -32,7 +32,7 @@ function App() {
   <Router>
     <Navbar className="NavBarColor" expand="lg" fixed="top">
       <Navbar.Brand>
-        <Link to="/">Got it Made</Link>
+        <Link to="/">Get Moving Los Angeles</Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

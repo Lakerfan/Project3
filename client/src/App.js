@@ -14,9 +14,9 @@ import About from './Components/AboutUs'
 import Profile from './Components/Profile'
 import './App.css';
 import ProfileImg from './Images/ProfileImage.jpg'
-import OtherHome from './Components/OtherHome'
+//import OtherHome from './Components/OtherHome'
 import Results from './Components/Results'
-// import Home from './Components/Home'
+import Home from './Components/Home'
 
 //Let's pretend we have a user logged in.  Here is the info (already pulled from the db) for this pretend user:
 const user = {
@@ -70,7 +70,7 @@ function App() {
         <Profile userInfo={user} greeting="Hello There!" />
       </Route>          
       <Route path="/">
-        <OtherHome />
+        <Home />
       </Route>
 
       {/* <Route path="/results">

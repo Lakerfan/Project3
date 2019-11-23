@@ -16,7 +16,7 @@ import './App.css';
 import ProfileImg from './Images/ProfileImage.jpg'
 import Results from './Components/Results'
 import Home from './Components/Home'
-
+import {AboutSection} from './pages/navBar';
 
 //Let's pretend we have a user logged in.  Here is the info (already pulled from the db) for this pretend user:
 const user = {
@@ -32,7 +32,7 @@ function App() {
   <Router>
     <Navbar className="NavBarColor" expand="lg" fixed="top">
       <Navbar.Brand>
-        <Link to="/">Got it Made</Link>
+        <Link to="/">Get Moving Los Angeles</Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -56,6 +56,7 @@ function App() {
         </Nav>
       </Navbar.Collapse>
   </Navbar>
+
 
        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}

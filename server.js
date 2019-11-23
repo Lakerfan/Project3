@@ -1,59 +1,22 @@
-const express = require('express');
-
-//const cheerio = require('cheerio'); // Makes HTTP request for HTML page
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const mongoConnection = require('./db/connection').connection;
-const mysql = require('mysql');
-const cors = require('cors');
-
-const port = process.env.PORT || 3000;  
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: 'password',
-  database: 'get_moving_db'
-});
-
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const routes = require("./routes");
 const app = express();
-app.use(
-  session({
-    secret: 'west wing',
-    resave: false,
-    saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoConnection})
-  })
-)
+const PORT = process.env.PORT || 3000;
 
-app.use(cors())
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-//app.use(routes);
-
-const jobSearch = require('./routing/jobsSearch');
-app.use('/jobs', jobSearch);
+app.use(routes);
 
 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/GetMoving');
 
-const thrillist= require('./controllers/thrillistController.js')
-app.use('/thrill', thrillist);
-
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongofoodDrink";
-mongoose.connect(MONGODB_URI,{ useNewUrlParser: true,useUnifiedTopology: true })
-.then(()=>console.log("MongoDb connected!"))
-.catch(err=>console.log(err))
-
-app.listen(port, function () {
-	console.log(`API Server Now Listening on Port ${port}`)
+app.listen(PORT, function (){
+    console.log(`API Server now listening on PORT ${PORT}!`);
 })
